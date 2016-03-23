@@ -6,17 +6,17 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Created by azazellj on 22.03.16.
  */
 public interface UkrBashService {
-    String PARAM_LIMIT = "limit";
+    String PARAM_LIMIT = "limitNumber";
 
     @GET("1/pictures.getRandom.json")
     Call<List<Picture>> getRandomPictures();
 
-    @GET("1/pictures.getRandom.json?limit={limit}")
-    Call<String> getPicturesWithLimit(@Path(UkrBashService.PARAM_LIMIT) int limit);
+    @GET("1/pictures.getRandom.json")
+    Call<List<Picture>> getPicturesWithLimit(@Query("limit") int limit);
 }

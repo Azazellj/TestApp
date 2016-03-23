@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="?attr/selectableItemBackground">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -11,21 +10,16 @@
         <variable
             name="pictureItem"
             type="com.azazellj.testapp.entity.Picture" />
-
-        <variable
-            name="pictureColor"
-            type="com.azazellj.testapp.entity.ItemColor" />
     </data>
 
     <LinearLayout
         android:id="@+id/picture_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/changing_color_layout"
         android:clickable="true"
         android:orientation="vertical"
-        app:addOnClickListener="@{pictureItem}"
-        app:addOnLongClickListener="@{pictureColor}"
-        app:backgroundColor="@{pictureColor.color}">
+        app:addOnClickListener="@{pictureItem}">
 
 
         <RelativeLayout

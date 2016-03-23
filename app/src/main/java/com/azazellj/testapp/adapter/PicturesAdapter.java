@@ -26,7 +26,7 @@ public class PicturesAdapter extends BaseListAdapter<Picture, View, PictureViewH
     @Override
     public PictureViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        ViewDataBinding binding = DataBindingUtil.inflate(inflater, R.layout.picture_item, parent, false);
+        ViewDataBinding binding = DataBindingUtil.inflate(inflater, R.layout.picture_item_layout, parent, false);
 
         return new PictureViewHolder(binding.getRoot());
     }

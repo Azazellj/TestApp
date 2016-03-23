@@ -36,11 +36,11 @@ public class UkrBashApi {
         mService.getRandomPictures().enqueue(callback);
     }
 
-    public void getPicturesWithLimit(int limit, Callback<String> callback) {
+    public void getPicturesWithLimit(int limit, Callback<List<Picture>> callback) {
         mService.getPicturesWithLimit(limit).enqueue(callback);
     }
 
-    public void getOnePicture(Callback<String> callback) {
+    public void getOnePicture(Callback<List<Picture>> callback) {
         getPicturesWithLimit(1, callback);
     }
 }

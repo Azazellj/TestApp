@@ -1,11 +1,23 @@
 package com.azazellj.testapp.entity;
 
 import android.databinding.Bindable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * Created by azazellj on 04.12.15.
  */
 public class Picture extends Entity {
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public Picture createFromParcel(Parcel in) {
+            return new Picture(in);
+        }
+
+        public Picture[] newArray(int size) {
+            return new Picture[size];
+        }
+    };
+
     private String status; // 1 – неопублікована, 2 — опублікована, 0 — видалена
     private String type; // picture
     private String add_date;// дата додавання, unix time
@@ -105,5 +117,45 @@ public class Picture extends Entity {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Picture(Parcel in) {
+        String[] data = new String[12];
+        in.readStringArray(data);
+        setId(data[0]);
+        this.status = data[1];
+        this.type = data[2];
+        this.add_date = data[3];
+        this.pub_date = data[4];
+        this.author = data[5];
+        this.author_id = data[6];
+        this.image = data[7];
+        this.thumbnail = data[8];
+        this.title = data[9];
+        this.rating = data[10];
+        this.detailMode = Boolean.parseBoolean(data[11]);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeStringArray(new String[]{
+                getId(),
+                this.status,
+                this.type,
+                this.add_date,
+                this.pub_date,
+                this.author,
+                this.author_id,
+                this.image,
+                this.thumbnail,
+                this.title,
+                this.rating,
+                String.valueOf(this.detailMode)
+        });
     }
 }

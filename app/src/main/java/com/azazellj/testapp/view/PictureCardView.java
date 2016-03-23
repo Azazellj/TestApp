@@ -21,6 +21,6 @@ public class PictureCardView extends View {
 
     public PictureCardView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        inflate(context, R.layout.picture_item, null);
+        inflate(context, R.layout.picture_item_layout, null);
     }
 }

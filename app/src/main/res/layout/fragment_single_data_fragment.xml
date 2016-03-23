@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,10 +11,6 @@
         <variable
             name="pictureItem"
             type="com.azazellj.testapp.entity.Picture" />
-
-        <variable
-            name="pictureColor"
-            type="com.azazellj.testapp.entity.ItemColor" />
     </data>
 
     <RelativeLayout
@@ -46,8 +41,9 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="false"
             android:layout_below="@+id/picture_image"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:text="@{pictureItem.title}"
             android:textAppearance="?android:attr/textAppearanceMedium" />
+
     </RelativeLayout>
 </layout>

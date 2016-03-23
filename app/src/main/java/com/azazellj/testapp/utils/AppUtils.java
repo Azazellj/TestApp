@@ -58,7 +58,7 @@ public class AppUtils {
         Intent alarmReceiver = getAlarmReceiverIntent(alarmClass);
 
         PendingIntent alarmIntent = getAlarmPendingIntent(0, alarmReceiver, 0);
-        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_HALF_HOUR / 15, alarmIntent);
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_HALF_HOUR / 50, alarmIntent);
     }
 
     public static void cancelAlarmManager(Class<?> alarmClass) {
