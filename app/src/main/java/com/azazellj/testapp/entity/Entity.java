@@ -1,25 +1,27 @@
 package com.azazellj.testapp.entity;
 
 import android.databinding.BaseObservable;
+import android.databinding.Bindable;
 
 /**
  * Created by azazellj on 22.03.16.
  */
 public class Entity extends BaseObservable {
-    public int id;
+    private String id;
 
     public Entity() {
     }
 
-    public Entity(int id) {
+    public Entity(String id) {
         this.id = id;
     }
 
-    public int getId() {
+    @Bindable
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

@@ -22,8 +22,4 @@ public abstract class BaseListItemViewHolder<E extends Entity, V extends View> e
     public V getView() {
         return (V) this.itemView;
     }
-
-
-
-    public abstract void updateView(E entity);
 }

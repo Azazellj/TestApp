@@ -39,7 +39,7 @@ public abstract class BaseListAdapter<E extends Entity, V extends View, VH exten
 
     @Override
     public long getItemId(int position) {
-        return this.mItems.get(position).getId();
+        return position;
     }
 
     @Override
