@@ -50,7 +50,8 @@
                 android:layout_alignTop="@+id/picture_image"
                 android:layout_toRightOf="@+id/picture_image"
                 android:text="@{pictureItem.title}"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="@{pictureItem.detailMode?View.VISIBLE:View.INVISIBLE}" />
 
         </RelativeLayout>
 

@@ -3,6 +3,6 @@
     <string name="yes">Yes</string>
     <string name="ok">Ok</string>
     <string name="dialog_title_error">Oopss..</string>
-    <string name="dialog_title_time">Time Alert</string>
+    <string name="dialog_title_time">Current time</string>
     <string name="toast_title_error">Sorry, an error has ocured. Please, try again to refresh data.</string>
 </resources>

@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import com.azazellj.testapp.R;
 import com.azazellj.testapp.databinding.FragmentSingleDataFragmentBinding;
 import com.azazellj.testapp.entity.Picture;
+import com.azazellj.testapp.utils.Constants;
 import com.azazellj.testapp.view.activity.BaseActivity;
 
 /**
@@ -33,6 +35,9 @@ public class SingleDataFragment extends Fragment {
         Picture picture = bundle.getParcelable(BaseActivity.KEY_BUNDLE_PICTURE);
 
         mBinding.setPictureItem(picture);
+
+        ViewCompat.setTransitionName(mBinding.pictureTitle, Constants.KEY_TITLE);
+        ViewCompat.setTransitionName(mBinding.pictureImage, Constants.KEY_IMAGE);
 
         return mBinding.getRoot();
     }

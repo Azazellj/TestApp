@@ -74,6 +74,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (response.body().size() < 1) return;
 
         DateFormat dateFormat = new SimpleDateFormat("HH:mm");
-        DialogUtils.showTimeDialog(getBaseContext(), dateFormat.format(Calendar.getInstance().getTime()), response.body().get(0));
+        DialogUtils.showTimeDialog(BaseActivity.this, dateFormat.format(Calendar.getInstance().getTime()), response.body().get(0));
     }
 }
