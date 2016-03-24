@@ -9,7 +9,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.azazellj.testapp.R;
 import com.azazellj.testapp.adapter.PicturesAdapter;
@@ -17,6 +16,7 @@ import com.azazellj.testapp.api.UkrBashApi;
 import com.azazellj.testapp.databinding.FragmentRandomDataFragmentBinding;
 import com.azazellj.testapp.entity.Picture;
 import com.azazellj.testapp.utils.DialogUtils;
+import com.azazellj.testapp.utils.ToastUtils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -53,7 +53,6 @@ public class RandomDataFragment extends Fragment implements SwipeRefreshLayout.O
         return mBinding.getRoot();
     }
 
-
     private void setAdapter(List<Picture> pictures) {
         mAdapter.setItems(pictures);
         mBinding.ukrBashImageView.setAdapter(mAdapter);
@@ -73,7 +72,7 @@ public class RandomDataFragment extends Fragment implements SwipeRefreshLayout.O
                 if (response.isSuccessful()) {
                     setAdapter(response.body());
                 } else {
-                    Toast.makeText(getContext(), getString(R.string.toast_title_error), Toast.LENGTH_SHORT).show();
+                    ToastUtils.showToast(getString(R.string.toast_title_error));
                 }
                 showRefreshAnimation(false);
             }

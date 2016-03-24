@@ -37,7 +37,6 @@ public class Entity extends BaseObservable implements Parcelable {
         this.id = id;
     }
 
-
     public Entity(Parcel in) {
         String[] data = new String[1];
         in.readStringArray(data);

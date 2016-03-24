@@ -12,8 +12,6 @@ import retrofit2.http.Query;
  * Created by azazellj on 22.03.16.
  */
 public interface UkrBashService {
-    String PARAM_LIMIT = "limitNumber";
-
     @GET("1/pictures.getRandom.json")
     Call<List<Picture>> getRandomPictures();
 

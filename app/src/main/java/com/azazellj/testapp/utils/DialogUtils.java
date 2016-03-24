@@ -34,13 +34,11 @@ public class DialogUtils {
                 .setMessage(message)
                 .setNeutralButton(R.string.ok, null);
 
-
         if (picture != null) {
             LayoutInflater inflater = LayoutInflater.from(context);
             ViewDataBinding binding = DataBindingUtil.inflate(inflater, R.layout.picture_item_layout, null, false);
             binding.setVariable(BR.pictureItem, picture);
             dialogBuilder.setView(binding.getRoot());
-
         }
 
         dialog = dialogBuilder.create();

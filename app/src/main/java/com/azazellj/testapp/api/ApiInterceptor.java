@@ -14,7 +14,6 @@ public class ApiInterceptor implements Interceptor {
     private static final String PARAM_API_KEY = "client";
     private static final String VALUE_API_KEY = "720500bc74f719e5";
 
-
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();

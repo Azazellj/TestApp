@@ -18,7 +18,7 @@ public class TestApplication extends Application {
         mContext = getApplicationContext();
 
         if (!AppUtils.isAlarmCreated(AppUtils.TIME_DIALOG_ALARM)) {
-            AppUtils.setAlarmManager(AppUtils.TIME_DIALOG_ALARM);
+            AppUtils.setAlarmManager(AppUtils.TIME_DIALOG_ALARM, AppUtils.INTERVAL_TWO_MINUTES);
         }
     }
 

@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 
+import com.azazellj.testapp.R;
 import com.azazellj.testapp.api.UkrBashApi;
 import com.azazellj.testapp.entity.Picture;
 import com.azazellj.testapp.utils.DialogUtils;
+import com.azazellj.testapp.utils.ToastUtils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -46,9 +48,6 @@ public abstract class BaseActivity extends AppCompatActivity {
                 @Override
                 public void onReceive(Context context, Intent intent) {
                     getImageForDialog();
-
-//                    DateFormat dateFormat = new SimpleDateFormat("HH:mm");
-//                    DialogUtils.showTimeDialog(BaseActivity.this, dateFormat.format(Calendar.getInstance().getTime()));
                 }
             };
 
@@ -56,21 +55,25 @@ public abstract class BaseActivity extends AppCompatActivity {
         UkrBashApi.getInstance().getOnePicture(new Callback<List<Picture>>() {
             @Override
             public void onResponse(Call<List<Picture>> call, Response<List<Picture>> response) {
-
-                String sss = "";
-
-                DateFormat dateFormat = new SimpleDateFormat("HH:mm");
-                DialogUtils.showTimeDialog(BaseActivity.this, dateFormat.format(Calendar.getInstance().getTime()), response.body().get(0));
-
-//
+                workWithResponse(response);
             }
 
             @Override
             public void onFailure(Call<List<Picture>> call, Throwable t) {
-
-                String sss = "";
-
+                DialogUtils.showErrorDialog(getBaseContext(), t.getMessage());
             }
         });
+    }
+
+    private void workWithResponse(Response<List<Picture>> response) {
+        if (!response.isSuccessful()) {
+            ToastUtils.showToast(getString(R.string.toast_title_error));
+            return;
+        }
+
+        if (response.body().size() < 1) return;
+
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        DialogUtils.showTimeDialog(getBaseContext(), dateFormat.format(Calendar.getInstance().getTime()), response.body().get(0));
     }
 }
