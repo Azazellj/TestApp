@@ -28,7 +28,7 @@ public class Picture extends Entity {
     private String thumbnail; // картинка 150х150
     private String title; // назва картинки
     private String rating; // рейтинг
-    private boolean detailMode;
+    private boolean detailMode = false;
 
     public String getAdd_date() {
         return add_date;
@@ -54,6 +54,7 @@ public class Picture extends Entity {
         this.author_id = author_id;
     }
 
+    @Bindable
     public boolean isDetailMode() {
         return detailMode;
     }
