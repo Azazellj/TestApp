@@ -14,7 +14,7 @@ import java.util.List;
  * Created by azazellj on 22.03.16.
  */
 public abstract class BaseListAdapter<E extends Entity, V extends View, VH extends BaseListItemViewHolder<E, V>> extends RecyclerView.Adapter<VH> {
-    private List<E> mItems = new ArrayList<>();
+    public List<E> mItems = new ArrayList<>();
 
     public void setItems(List<E> items) {
         this.mItems = items;

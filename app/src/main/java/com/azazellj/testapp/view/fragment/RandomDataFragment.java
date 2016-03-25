@@ -6,11 +6,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.azazellj.testapp.R;
+import com.azazellj.testapp.adapter.ItemActionCallback;
 import com.azazellj.testapp.adapter.PicturesAdapter;
 import com.azazellj.testapp.api.UkrBashApi;
 import com.azazellj.testapp.databinding.FragmentRandomDataFragmentBinding;
@@ -48,7 +50,11 @@ public class RandomDataFragment extends Fragment implements SwipeRefreshLayout.O
         mBinding.ukrBashImageView.setLayoutManager(layoutManager);
 
         mAdapter = new PicturesAdapter();
-        setAdapter(Arrays.asList(new Picture[0]));
+        setAdapter(Arrays.asList(new Picture[]{}));
+
+        ItemTouchHelper.Callback callback = new ItemActionCallback(mAdapter);
+        ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
+        touchHelper.attachToRecyclerView(mBinding.ukrBashImageView);
 
         return mBinding.getRoot();
     }
